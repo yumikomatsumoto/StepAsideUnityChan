@@ -6,14 +6,11 @@ public class ItemDestroy : MonoBehaviour {
 
     private GameObject UnityChan;
 
-    //Itemが見える可能性のあるz軸の最大値
-    private float visiblePosZ = -6.5f;
-
     // Use this for initialization
     void Start () {
 
         //Unitychanオブジェクトを取得
-        this.UnityChan= GameObject.Find("UnityChan");
+        this.UnityChan= GameObject.Find("unitychan");
 		
 
     }
@@ -21,7 +18,7 @@ public class ItemDestroy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //ユニティちゃんが通り過ぎて画面外に出たらアイテムを破棄する。
-        if (transform.position.z < visiblePosZ && this.UnityChan) {
+        if (this.UnityChan.transform.position.z > transform.position.z +10) {
             Destroy(gameObject);
         }
 
